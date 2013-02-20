@@ -34,10 +34,11 @@ class SqlQueryManager{
         } 
     }
 
-    private function _formatSelectSqlQuery($table,$keyarray,$wherearray,$orderarray,$grouparray,$order,$limit){
+    private function _formatSelectSqlQuery($table,$keyarray,$wherearray,$orderarray,$grouparray,$limit){
+    
         if(defined('DATABASE_MYSQL_DEFAULT')){
             include dirname(__FILE__).'/MysqliQuery.class.php';
-            return MysqliQuery::formatSelectSqlQuery($table,$keyarray,$wherearray,$orderarray,$grouparray,$order,$limit);
+            return MysqliQuery::formatSelectSqlQuery($table,$keyarray,$wherearray,$orderarray,$grouparray,$limit);
         }
     }
 
@@ -48,10 +49,10 @@ class SqlQueryManager{
         }
     }
 
-    private function _formatDeleteSqlQuery($table,$keyarray,$wherearray,$limit){
+    private function _formatDeleteSqlQuery($table,$wherearray,$limit){
         if(defined('DATABASE_MYSQL_DEFAULT')){
             include dirname(__FILE__).'/MysqliQuery.class.php';
-            return MysqliQuery::formatDeleteSqlQuery($table,$keyarray,$wherearray,$limit);
+            return MysqliQuery::formatDeleteSqlQuery($table,$wherearray,$limit);
         }
     }
 }
